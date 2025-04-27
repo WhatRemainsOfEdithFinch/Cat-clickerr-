@@ -14,12 +14,7 @@ onClick:
 onUpgrade:
     if "score" is greater than or equal to 10:
         subtract "score" by 10
-        message "You upgraded your cat army!" (simple) and this Let's make a game!
-
-title: Cat Clicker: Lore Untold
-author: You
-description: Click for cats. Stay for the devastatingly deep lore.
-win: (if you even can.)
+        message "You upgraded your cat army!" (simple)
 
 //========================
 // Variables
