@@ -1,0 +1,109 @@
+Let's make a game!
+title: Cat Clicker
+author: TestUser
+desc: Click to gather cats.
+
+onStart:
+    set "score" to 0
+    set "cats" to 0
+
+onClick:
+    add "score" by 1
+    add "cats" by 1
+
+onUpgrade:
+    if "score" is greater than or equal to 10:
+        subtract "score" by 10
+        message "You upgraded your cat army!" (simple) and this Let's make a game!
+
+title: Cat Clicker: Lore Untold
+author: You
+description: Click for cats. Stay for the devastatingly deep lore.
+win: (if you even can.)
+
+//========================
+// Variables
+//========================
+var cats = 0
+var loreLevel = 0
+
+//========================
+// Items
+//========================
+item Catnip Field
+desc "A simple field where cats frolic. +1 cat per second."
+cost cats 10
+rate cats 1
+
+item Cat Temple
+desc "Ancient temple filled with mysterious feline carvings. +5 cats per second. (Also... something stirs.)"
+cost cats 100
+rate cats 5
+effect loreLevel+=1
+
+item Forgotten Cat Shrine
+desc "No one remembers who built it. Or why the cats guard it so fiercely. +50 cats per second."
+cost cats 1000
+rate cats 50
+effect loreLevel+=2
+
+item Eldritch Cat Gateway
+desc "The deeper you go, the more you realize...the cats are not what they seem. +500 cats per second."
+cost cats 10000
+rate cats 500
+effect loreLevel+=5
+
+item Cosmic Cat Core
+desc "You have gone beyond. The cats whisper truths no human should know. +5000 cats per second."
+cost cats 100000
+rate cats 5000
+effect loreLevel+=10
+
+//========================
+// Upgrades
+//========================
+upgrade Bigger Scritches
+desc "Your scritch technique is unmatched. +2x cat production."
+cost cats 500
+effect global cats*2
+
+upgrade Secret Rites
+desc "The cats allow you to glimpse ancient rituals. +3x cat production."
+cost cats 5000
+effect global cats*3
+
+upgrade Purrfection Ascended
+desc "You have achieved the ultimate purr. +5x cat production."
+cost cats 50000
+effect global cats*5
+
+//========================
+// Achievements
+//========================
+achieve First Cat!
+desc "Your journey begins."
+condition cats >= 1
+
+achieve A Field Full
+desc "Your catnip field is thriving!"
+condition cats >= 100
+
+achieve Secrets Unveiled
+desc "You have uncovered ancient cat knowledge."
+condition loreLevel >= 5
+
+achieve It Watches
+desc "Something watches you from the gateway."
+condition loreLevel >= 10
+
+achieve The Truth About Cats
+desc "You understand now. There is no going back."
+condition loreLevel >= 20
+
+//========================
+// Clickable
+//========================
+click
+text "Summon Cat"
+effect cats+=1
+sound click1 (not simple at all)
